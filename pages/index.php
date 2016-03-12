@@ -52,7 +52,7 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
 	<!-- main container -->
-	<div class="container" style="margin-top: 75px;">
+	<div class="container" style="margin-top: 75px; margin-bottom: 50px;">
 		<div class="row">
 			<div class="col-md-3">
 				<div class="sidebar">
