@@ -78,48 +78,48 @@
 					<table class="table table-no-border">
 						<tbody>
 							<tr>
-								<td class="text-right"><strong>Sex:</strong></td>
-								<td><?php echo $row['sex'] = 1 ? 'Male' : 'Female' ?></td>
+								<td class="text-right"><strong>Gender:</strong></td>
+								<td><?php echo $row['sex'] = 1 ? 'Male' : 'Female'; ?></td>
 							</tr>
 							<tr>
-								<td class="text-right"><strong>Tel No:</strong></td>
-								<td><?php echo $row['telno'] ?></td>
+								<td class="text-right"><strong>Tel. No:</strong></td>
+								<td><?php echo $row['telno']; ?></td>
 							</tr>
 							<tr>
 								<td class="text-right"><strong>Date of Birth:</strong></td>
-								<td><?php echo $row['dob'] ?></td>
+								<td><?php echo date('F d, Y', strtotime($row['dob'])); ?></td>
 							</tr>
 							<tr>
 								<td class="text-right"><strong>Age:</strong></td>
-								<td><?php echo $row['age'] ?></td>
+								<td><?php echo $row['age']; ?></td>
 							</tr>
 							<tr>
 								<td class="text-right"><strong>Status:</strong></td>
-								<td><?php echo $row['status'] ?></td>
+								<td><?php echo $row['status']; ?></td>
 							</tr>
 							<tr>
 								<td class="text-right"><strong>Dependents:</strong></td>
-								<td><?php echo $row['dependents'] ?></td>
+								<td><?php echo $row['dependents']; ?></td>
 							</tr>
 							<tr>
 								<td class="text-right"><strong>Address:</strong></td>
-								<td><?php echo $row['address'] ?></td>
+								<td><?php echo $row['address']; ?></td>
 							</tr>
 							<tr>
 								<td class="text-right"><strong>PAG-IBIG:</strong></td>
-								<td><?php echo $row['pagibigno'] ?></td>
+								<td><?php echo $row['pagibigno']; ?></td>
 							</tr>
 							<tr>
 								<td class="text-right"><strong>PHILHEALTH:</strong></td>
-								<td><?php echo $row['philhealthno'] ?></td>
+								<td><?php echo $row['philhealthno']; ?></td>
 							</tr>
 							<tr>
 								<td class="text-right"><strong>SSS:</strong></td>
-								<td><?php echo $row['sssno'] ?></td>
+								<td><?php echo $row['sssno']; ?></td>
 							</tr>
 							<tr>
 								<td class="text-right"><strong>TIN:</strong></td>
-								<td><?php echo $row['tinno'] ?></td>
+								<td><?php echo $row['tinno']; ?></td>
 							</tr>
 						</tbody>
 					</table>
