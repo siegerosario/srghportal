@@ -15,9 +15,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Web Portal</title>
 	<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/fa/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 	<script src="../assets/js/jquery.min.js" type="text/javascript"></script>
     <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../assets/js/script.js" type="text/javascript"></script>
 </head>
 <body>
 	<!-- nav container -->
@@ -78,42 +80,41 @@
 					<!-- <li class="<?php gen_active($page, 'payslip'); ?>"><a href="?page=payslip"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Payslip</a></li> -->
 				</ul>
 				<?php 
-					if ($page == 'index') {?>
-									<h3 class="page-header">Schedule</h3>
-									<table class="table table-bordered">
-										<th>#</th>
-										<th>Schedule ID</th>
-										<th>Time In</th>
-										<th>Time Out</th>
-										<th>Status</th>
-											<?php 
-											$sql = "SELECT * FROM schedule WHERE empid=$id";
-											$query = mysqli_query($con, $sql);
-											$ctr = 1;		
-											$row = mysqli_fetch_array($query);
-											if($row > 1)	
-											{
-												while ($row = mysqli_fetch_array($query)) {
-												?>
-												<tr>
-												<td><?php echo  $ctr ? $ctr++ : 0 ; ?></td>
-												<td><?php echo $row['scheduleid']; ?></td>
-												<td><?php echo date('F d, Y (h:i A)', strtotime($row['scheddatetimein'])); ?></td>
-												<td><?php echo date('F d, Y (h:i A)', strtotime($row['scheddatetimeout'])); ?></td>
-												<?php if($row['restday'] == 1){ ?>
-														<td><?php echo 'RestDay'; ?></td><?php
-													  }else{ ?>
-													  	<td></td>
-												</tr>
-												<?php }
-												}
-											}		
+					if ($page == 'index') {
+				?>
+					<h3 class="page-header">Schedule</h3>
+					<table class="table table-bordered">
+						<th>#</th>
+						<th>Schedule ID</th>
+						<th>Time In</th>
+						<th>Time Out</th>
+						<th>Status</th>
+							<?php 
+							$sql = "SELECT * FROM schedule WHERE empid=$id";
+							$query = mysqli_query($con, $sql);
+							$ctr = 1;		
+							$row = mysqli_fetch_array($query);
+							if($row > 1)	
+							{
+								while ($row = mysqli_fetch_array($query)) {
+								?>
+								<tr>
+								<td><?php echo  $ctr ? $ctr++ : 0 ; ?></td>
+								<td><?php echo $row['scheduleid']; ?></td>
+								<td><?php echo date('F d, Y (h:i A)', strtotime($row['scheddatetimein'])); ?></td>
+								<td><?php echo date('F d, Y (h:i A)', strtotime($row['scheddatetimeout'])); ?></td>
+								<?php if($row['restday'] == 1){ ?>
+										<td><?php echo 'RestDay'; ?></td><?php
+									  }else{ ?>
+									  	<td></td>
+								</tr>
+								<?php }
+								}
+							}		
 
-											?>
-									</table>
-								</div>
-							</div>
-						</div><?php
+							?>
+					</table>
+				<?php
 					} else {
 						$filename = "$page.php";
 						if (is_readable($filename)) {
@@ -121,6 +122,9 @@
 						}
 					}
 				?>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
 <?php 
