@@ -6,8 +6,44 @@
 	text-align: justify;
 	margin-bottom: 20px;
 }
+
 .sidebar strong {
 	padding-top: 5px;
 }
-.navbar-blue {background-color: blue; color: #fff;}
-footer { border-top: 1px solid #ccc; margin: 40px 0; padding-top: 20px; text-align: right; }
+
+.navbar-blue {
+    background-color: blue;
+    color: #fff;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.no-margin-top {
+    margin-top: 0;
+}
+
+.no-margin-bottom {
+    margin-bottom: 0;
+}
+
+.no-margin-left {
+    margin-left: 0;
+}
+
+.no-margin-right {
+    margin-right: 0;
+}
+
+footer {
+    border-top: 1px solid #ccc;
+    margin: 40px 0;
+    padding-top: 20px;
+    text-align: right;
+}
+
+.table.table-no-border > tbody > tr > td {
+    border-top: none !important;
+    padding: 2px 3px;
+}
