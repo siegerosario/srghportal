@@ -1,0 +1,13 @@
+.sidebar {
+	background: #33C3F0;
+	padding: 15px;
+	background: rgba(121, 206, 194, 0.8) none repeat scroll 0% 0%;
+	box-shadow: rgba(0, 0, 0, 0.3) 2px 5px 5px;
+	text-align: justify;
+	margin-bottom: 20px;
+}
+.sidebar strong {
+	padding-top: 5px;
+}
+.navbar-blue {background-color: blue; color: #fff;}
+footer { border-top: 1px solid #ccc; margin: 40px 0; padding-top: 20px; text-align: right; }
