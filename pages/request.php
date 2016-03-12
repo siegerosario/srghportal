@@ -46,25 +46,28 @@ LEAVE REQUESTS
 			<div class="modal-body">
 				Type of Request:
 				<select name="type" class="form-control">
+					<option value="" selected disabled>Choose an option...</option>
 					<option value="1">Overtime</option>
 					<option value="2">Leave</option>
 				</select>
+				<br>
 				Schedule of Time-In:				
 				<select name="sched" class="form-control">
+					<option value="" selected disabled>Choose an option...</option>
 					<?php 
 					$date = date('Y-m-d', strtotime('+3 days'));
-					$sql = "SELECT `scheduleddatetimein` FROM `schedule` WHERE `scheduleddatetimein` >= '$date' AND `empid` = '$id'";
+					$sql = "SELECT scheddatetimein FROM schedule WHERE scheddatetimein>='$date' AND empid=$id";
 					$query = mysqli_query($con, $sql);
 					while ($row = mysqli_fetch_array($query)) {
-					 	echo "<option value='$row[scheduleddatetimein]'>$row[scheduleddatetimein]</option>";
+					 	echo '<option value="' . $row['scheddatetimein'] . '">' . date('F d, Y (h:i A)', strtotime($row['scheddatetimein'])) . '</option>';
 					 } 
 					?>
 				</select>
-				<?php 
-					if (!$query) {
-						echo 'haha';
-					}
-					 ?>
+				<div id="hours-block" class="hidden">
+					<br>
+					Hours:
+					<input class="form-control" type="number" name="hours">
+				</div>
 			</div>;
 			<div class="modal-footer text-right">
 				<button class="btn btn-success" data-toggle="modal" data-target="#modal">Send</button>
@@ -72,10 +75,20 @@ LEAVE REQUESTS
 					if(isset($_POST['send']))
 					{
 						echo $type = isset($_POST['type']);
-
 					}
 				?>
 			</div>
 		</div>
 	</div>
 </div>
+<script>
+	$(document).ready(function() {
+		$('select[name="type"]').change(function() {
+			if(this.value == '1') {
+				$('div#hours-block').removeClass('hidden');
+			} else {
+				$('div#hours-block').addClass('hidden');
+			}
+		});
+	});
+</script>

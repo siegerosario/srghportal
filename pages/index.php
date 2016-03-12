@@ -1,11 +1,11 @@
 <?php 
-session_start();
-require_once 'connection.php';
-$sql = "SELECT * FROM geninfo INNER JOIN departments ON geninfo.deptid=departments.deptid WHERE empid='$_SESSION[id]'";
-$query = mysqli_query($con, $sql);
-$row = mysqli_fetch_array($query);
-$page = isset($_GET['page']) ? $_GET['page'] : 'index';
-$id = $_SESSION['id'];
+	session_start();
+	require_once 'connection.php';
+	$sql = "SELECT * FROM geninfo INNER JOIN departments ON geninfo.deptid=departments.deptid WHERE empid='$_SESSION[id]'";
+	$query = mysqli_query($con, $sql);
+	$row = mysqli_fetch_array($query);
+	$page = isset($_GET['page']) ? $_GET['page'] : 'index';
+	$id = $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +16,8 @@ $id = $_SESSION['id'];
 	<title>Web Portal</title>
 	<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+	<script src="../assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
 </head>
 <body>
 	<!-- nav container -->
@@ -73,63 +75,61 @@ $id = $_SESSION['id'];
 					<li class="<?php gen_active($page, 'index'); ?>"><a href="?page=index"><span class="glyphicon glyphicon-calendar"></span> Schedule</a></li>
 					<li class="<?php gen_active($page, 'memo'); ?>"><a href="?page=memo"><span class="glyphicon glyphicon-file"></span>&nbsp;Memo</a></li>
 					<li class="<?php gen_active($page, 'request'); ?>"><a href="?page=request"><span class="glyphicon glyphicon-envelope"></span>&nbsp;Request</a></li>
-					<li class="<?php gen_active($page, 'payslip'); ?>"><a href="?page=payslip"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Payslip</a></li>
+					<!-- <li class="<?php gen_active($page, 'payslip'); ?>"><a href="?page=payslip"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Payslip</a></li> -->
 				</ul>
 				<?php 
-				if ($page == 'index') {?>
-								<h3 class="page-header">Schedule</h3>
-								<table class="table table-bordered">
-									<th>#</th>
-									<th>Schedule ID</th>
-									<th>Time In</th>
-									<th>Time Out</th>
-									<th>Status</th>
-										<?php 
-										$sql = "SELECT * FROM schedule WHERE empid=$id";
-										$query = mysqli_query($con, $sql);
-										$ctr = 1;		
-										$row = mysqli_fetch_array($query);
-										if($row > 1)	
-										{
-											while ($row = mysqli_fetch_array($query)) {
-											?>
-											<tr>
-											<td><?php echo  $ctr ? $ctr++ : 0 ; ?></td>
-											<td><?php echo $row['scheduleid'] ?></td>
-											<td><?php echo $row['scheduleddatetimein'] ?></td>
-											<td><?php echo $row['scheduleddatetimeout'] ?></td>
-											<?php if($row['restday'] == 1){ ?>
-													<td><?php echo 'RestDay';?></td><?php
-												  }else{ ?>
-												  	<td></td>
-											</tr>
-											<?php }
-											}
-										}		
+					if ($page == 'index') {?>
+									<h3 class="page-header">Schedule</h3>
+									<table class="table table-bordered">
+										<th>#</th>
+										<th>Schedule ID</th>
+										<th>Time In</th>
+										<th>Time Out</th>
+										<th>Status</th>
+											<?php 
+											$sql = "SELECT * FROM schedule WHERE empid=$id";
+											$query = mysqli_query($con, $sql);
+											$ctr = 1;		
+											$row = mysqli_fetch_array($query);
+											if($row > 1)	
+											{
+												while ($row = mysqli_fetch_array($query)) {
+												?>
+												<tr>
+												<td><?php echo  $ctr ? $ctr++ : 0 ; ?></td>
+												<td><?php echo $row['scheduleid']; ?></td>
+												<td><?php echo date('F d, Y (h:i A)', strtotime($row['scheddatetimein'])); ?></td>
+												<td><?php echo date('F d, Y (h:i A)', strtotime($row['scheddatetimeout'])); ?></td>
+												<?php if($row['restday'] == 1){ ?>
+														<td><?php echo 'RestDay'; ?></td><?php
+													  }else{ ?>
+													  	<td></td>
+												</tr>
+												<?php }
+												}
+											}		
 
-										?>
-								</table>
+											?>
+									</table>
+								</div>
 							</div>
-						</div>
-					</div><?php
-				} else {
-					$filename = "$page.php";
-					if (is_readable($filename)) {
-						@include_once "$filename";
+						</div><?php
+					} else {
+						$filename = "$page.php";
+						if (is_readable($filename)) {
+							@include_once "$filename";
+						}
 					}
-				}
 				?>
-	<script src="../assets/js/jquery.min.js" type="text/javascript"></script>
-    <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>
 <?php 
-function gen_active($page, $link){
-    if ($page == $link){
-        echo "active";
-    } else {
-        echo "";
-    }
-}
-mysqli_close($con);
+	function gen_active($page, $link){
+	    if ($page == $link){
+	        echo "active";
+	    } else {
+	        echo "";
+	    }
+	}
+	mysqli_close($con);
 ?>
