@@ -1,1 +1,1 @@
-<h3 class="page-header">Payslip</h3>
+<h2 class="page-header">Payslip</h2>

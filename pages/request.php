@@ -1,4 +1,4 @@
-<h3 class="page-header">Request</h3>
+<h2 class="page-header">Request<button class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal">New Request</button></h2>
 <!-- OT -->
 OVERTIME REQUESTS
 <table class="table table-bordered">
@@ -52,7 +52,6 @@ LEAVE REQUESTS
 		?>
 	</tbody>
 </table>
-<button class="btn btn-primary" data-toggle="modal" data-target="#modal">New Request</button>
 <div id="modal" class="modal fade" data-role="modal">
 	<div class="modal-dialog">
 		<div class="modal-content">

@@ -135,13 +135,18 @@
 				<?php 
 					if ($page == 'index') {
 				?>
-					<h3 class="page-header">Schedule</h3>
+					<h2 class="page-header">Schedule</h2>
 					<table class="table table-bordered">
-						<th>#</th>
-						<th>Schedule ID</th>
-						<th>Time In</th>
-						<th>Time Out</th>
-						<th>Status</th>
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Schedule ID</th>
+								<th>Time In</th>
+								<th>Time Out</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
 							<?php 
 							$sql = "SELECT * FROM schedule WHERE empid=$id";
 							$query = mysqli_query($con, $sql);
@@ -166,6 +171,7 @@
 							}		
 
 							?>
+						</tbody>
 					</table>
 				<?php
 					} else {
