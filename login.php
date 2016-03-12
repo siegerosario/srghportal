@@ -9,7 +9,9 @@ if (isset($_POST['login'])) {
 	$query = mysqli_query($con, $sql);
 	if (mysqli_num_rows($query) == 1) {
 		$row = mysqli_fetch_array($query);
-		$_SESSION['id'] = $row['empid'];?>
+		$_SESSION['id'] = $row['empid'];
+		$_SESSION['dept_id'] = $row['deptid'];
+		?>
 		<script type="text/javascript">
 			alert('Login Successful');
 			window.location.href='pages/index.php';
