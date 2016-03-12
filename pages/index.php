@@ -56,6 +56,7 @@
 		<div class="row">
 			<div class="col-md-3">
 				<div class="sidebar">
+					<!--
 					<img src="../img/1.jpg" class="img-responsive img-thumbnail" alt=""><br>
 					<strong>Name:</strong> <?php echo $row['surname'].', '.$row['given'].' '.$row['initial'] ?><br>
 					<strong>Department:</strong> <?php echo $row['deptname'] ?><br>
@@ -70,6 +71,58 @@
 					<strong>PHILHEALTH:</strong> <?php echo $row['philhealthno'] ?><br>
 					<strong>SSS:</strong> <?php echo $row['sssno'] ?><br>
 					<strong>TIN:</strong> <?php echo $row['tinno'] ?><br>
+					-->
+					<img src="../img/1.jpg" class="img-responsive img-thumbnail" alt=""><br>
+					<h3 class="no-margin-bottom"><?php echo $row['surname'].', '.$row['given'].' '.$row['initial'] ?></h3>
+					<h5 class="no-margin-top"><?php echo $row['deptname'] ?> Department</h5>
+					<table class="table table-no-border">
+						<tbody>
+							<tr>
+								<td class="text-right"><strong>Sex:</strong></td>
+								<td><?php echo $row['sex'] = 1 ? 'Male' : 'Female' ?></td>
+							</tr>
+							<tr>
+								<td class="text-right"><strong>Tel No:</strong></td>
+								<td><?php echo $row['telno'] ?></td>
+							</tr>
+							<tr>
+								<td class="text-right"><strong>Date of Birth:</strong></td>
+								<td><?php echo $row['dob'] ?></td>
+							</tr>
+							<tr>
+								<td class="text-right"><strong>Age:</strong></td>
+								<td><?php echo $row['age'] ?></td>
+							</tr>
+							<tr>
+								<td class="text-right"><strong>Status:</strong></td>
+								<td><?php echo $row['status'] ?></td>
+							</tr>
+							<tr>
+								<td class="text-right"><strong>Dependents:</strong></td>
+								<td><?php echo $row['dependents'] ?></td>
+							</tr>
+							<tr>
+								<td class="text-right"><strong>Address:</strong></td>
+								<td><?php echo $row['address'] ?></td>
+							</tr>
+							<tr>
+								<td class="text-right"><strong>PAG-IBIG:</strong></td>
+								<td><?php echo $row['pagibigno'] ?></td>
+							</tr>
+							<tr>
+								<td class="text-right"><strong>PHILHEALTH:</strong></td>
+								<td><?php echo $row['philhealthno'] ?></td>
+							</tr>
+							<tr>
+								<td class="text-right"><strong>SSS:</strong></td>
+								<td><?php echo $row['sssno'] ?></td>
+							</tr>
+							<tr>
+								<td class="text-right"><strong>TIN:</strong></td>
+								<td><?php echo $row['tinno'] ?></td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 			<div class="col-md-9">
