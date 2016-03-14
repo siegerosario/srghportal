@@ -122,7 +122,7 @@ LEAVE REQUESTS
 				method: 'POST',
 				data: data,
 				success: function(response) {
-					setModalHtmlContent('prompt-modal', '<h4>Request Status</h4>', '<p>' + response + '</p>', '');
+					setModalContent('prompt-modal', '<h4>Request Status</h4>', '<p>' + response + '</p>', '');
 
 					setTimeout(function() {
 						closeModal('prompt-modal');
